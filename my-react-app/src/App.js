@@ -15,7 +15,7 @@ function App() {
     axios
       .post("http://localhost:8080/api/create-tree", numbersArray)
       .then((response) => {
-        const treeData = response.data; // Assume response.data is already an object
+        const treeData = response.data;
         setTree(treeData);
         setError("");
       })
