@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
+import photo from "./media/santa.webp";
 
 function App() {
   const [numbers, setNumbers] = useState("");
@@ -27,20 +28,32 @@ function App() {
 
   return (
     <div className="App">
-      <h1>DSA Final Project</h1>
-      <h2>Binary Search Tree</h2>
-      <input
-        type="text"
-        value={numbers}
-        onChange={(e) => setNumbers(e.target.value)}
-        placeholder="Enter numbers separated by commas"
-      />
-      <button onClick={fetchData}>Fetch Data</button>
-      {error && <p>{error}</p>}
-      <div>
-        <h3>Tree Structure:</h3>
-        <pre>{tree ? JSON.stringify(tree, null, 4) : "No data to display"}</pre>
+      <div className="nav">
+        <div>
+          <img src={photo} />
+        </div>
+        <div>
+          <h1>DSA Final Project</h1>
+          <h2>Binary Search (Christmas) Tree</h2>
+          <input
+            type="text"
+            value={numbers}
+            onChange={(e) => setNumbers(e.target.value)}
+            placeholder="Enter numbers separated by commas"
+          />
+          <button onClick={fetchData}>Submit</button>
+          {error && <p>{error}</p>}
+          <div>
+            <h3>Tree Structure:</h3>
+          </div>
+        </div>
+        <div>
+          <img src={photo} />
+        </div>
       </div>
+      <pre className="body">
+        {tree ? JSON.stringify(tree, null, 4) : "No data to display"}
+      </pre>
     </div>
   );
 }
